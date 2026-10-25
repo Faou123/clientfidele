@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Rendez-vous | ClientFidèle</title>
+
+  <!-- Styles communs de l'application -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Styles propres aux rendez-vous -->
+  <link rel="stylesheet" href="css/appointments.css">
+
+  <script src="js/appointments.js" defer></script>
+</head>
+
+<body>
+  <div class="app-layout">
+
+    <!-- MENU : garde le même menu que dans clients.html -->
+    
+<aside class="sidebar">
+  <a href="index.html" class="brand">Client<span>Fidèle</span></a>
+
+  <p class="nav-label">ESPACE DE TRAVAIL</p>
+
+  <nav>
+    <a class="nav-link" href="index.html">▦ Tableau de bord</a>
+    <a class="nav-link" href="clients.html">♙ Clients</a>
+    <a class="nav-link active" href="rendez-vous.html">▣ Rendez-vous</a>
+    <a class="nav-link" href="index.html#loyalty">♡ Fidélisation</a>
+  </nav>
+
+  <div class="sidebar-bottom">
+    <div class="avatar">S</div>
+    <div>
+      <strong>Mon salon</strong>
+      <small>Espace professionnel</small>
+    </div>
+  </div>
+</aside>
+
+
+    <main class="main-content appointment-page">
+
+      <header class="appointment-header">
+        <div>
+          <p class="appointment-eyebrow">ORGANISATION DU SALON</p>
+          <h1>Rendez-vous</h1>
+          <p>Organise les rendez-vous et retrouve les prochaines visites.</p>
+        </div>
+      </header>
+
+      <!-- Statistiques -->
+      <section class="appointment-stats">
+        <article class="appointment-stat">
+          <p>Total des rendez-vous</p>
+          <h2 id="totalAppointments">0</h2>
+        </article>
+
+        <article class="appointment-stat">
+          <p>Rendez-vous à venir</p>
+          <h2 id="upcomingAppointments">0</h2>
+        </article>
+      </section>
+
+      <!-- Formulaire -->
+      <section class="appointment-panel">
+        <h2>Ajouter un rendez-vous</h2>
+
+        <form id="appointmentForm">
+          <div class="appointment-fields">
+
+            <label for="appointmentClient">
+              Client
+              <select id="appointmentClient" required>
+                <option value="">Choisir un client</option>
+              </select>
+            </label>
+
+            <label for="appointmentService">
+              Prestation
+              <input
+                type="text"
+                id="appointmentService"
+                placeholder="Ex. : Coupe, coloration..."
+                required
+              >
+            </label>
+
+            <label for="appointmentDate">
+              Date
+              <input type="date" id="appointmentDate" required>
+            </label>
+
+            <label for="appointmentTime">
+              Heure
+              <input type="time" id="appointmentTime" required>
+            </label>
+
+            <label for="appointmentDuration">
+              Durée (minutes)
+              <input
+                type="number"
+                id="appointmentDuration"
+                min="15"
+                step="15"
+                value="30"
+                required
+              >
+            </label>
+
+          </div>
+
+          <p
+            id="appointmentFeedback"
+            class="appointment-feedback"
+            role="status"
+            aria-live="polite"
+          ></p>
+
+          <button type="submit" class="appointment-submit">
+            Ajouter le rendez-vous
+          </button>
+        </form>
+      </section>
+
+      <!-- Liste des rendez-vous -->
+      <section class="appointment-panel">
+        <div class="appointment-list-header">
+          <h2>Liste des rendez-vous</h2>
+
+          <label for="appointmentFilter" class="appointment-filter-label">
+            Filtrer
+            <select id="appointmentFilter">
+              <option value="all">Tous</option>
+              <option value="upcoming">À venir</option>
+              <option value="past">Passés</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="appointment-table-wrapper">
+          <table class="appointment-table">
+            <thead>
+              <tr>
+                <th>Client</th>
+                <th>Prestation</th>
+                <th>Date</th>
+                <th>Heure</th>
+                <th>Durée</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody id="appointmentsTable"></tbody>
+          </table>
+        </div>
+
+        <p id="appointmentsEmpty" class="appointment-empty" hidden>
+          Aucun rendez-vous à afficher.
+        </p>
+      </section>
+      <footer>
+      <span>© 2026 ClientFidèle</span>
+      <span>La fidélité commence par une attention.</span>
+    </footer>
+
+    </main>
+  </div>
+</body>
+</html>
+

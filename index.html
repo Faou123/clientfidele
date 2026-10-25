@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ClientFidèle : gérez vos clients, vos rendez-vous et leur fidélisation.">
+  <title>ClientFidèle — Tableau de bord</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a href="#" class="brand">Client<span>Fidèle</span></a>
+
+    <p class="nav-label">ESPACE DE TRAVAIL</p>
+    <nav>
+      <a class="nav-link active" href="#dashboard">▦ Tableau de bord</a>
+      <a class="nav-link" href="#clients">♙ Clients</a>
+      <a class="nav-link" href="#appointments">▣ Rendez-vous</a>
+      <a class="nav-link" href="#loyalty">♡ Fidélisation</a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="avatar">S</div>
+      <div>
+        <strong>Mon salon</strong>
+        <small>Espace professionnel</small>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content" id="dashboard">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">VOTRE ESPACE PROFESSIONNEL</p>
+        <h1>Tableau de bord</h1>
+        <p class="subtitle">Gardez le lien avec vos clients, simplement.</p>
+      </div>
+      <button class="primary-button" id="addAppointment">
+        + Nouveau rendez-vous
+      </button>
+    </header>
+
+    <section class="welcome-card">
+      <div>
+        <p class="welcome-label">VOTRE ACTIVITÉ EN UN COUP D’ŒIL</p>
+        <h2>Bonjour et bienvenue 👋</h2>
+        <p>Suivez votre activité et donnez envie à vos clients de revenir.</p>
+      </div>
+        <div class="welcome-decoration">♡</div>
+    </section>
+
+    <section class="stats-grid" aria-label="Indicateurs clés">
+      <article class="stat-card">
+        <span class="stat-icon">♙</span>
+        <p>Clients enregistrés</p>
+        <strong id="clientCount">128</strong>
+        <small>Votre portefeuille client</small>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-icon">▣</span>
+        <p>Rendez-vous aujourd’hui</p>
+        <strong id="appointmentCount">8</strong>
+        <small>Dans votre agenda</small>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-icon">♡</span>
+        <p>Clients à relancer</p>
+        <strong id="inactiveCount">12</strong>
+        <small>À recontacter prochainement</small>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-icon">↗</span>
+        <p>Fidélisation</p>
+        <strong>+18%</strong>
+        <small>Exemple de progression</small>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel" id="appointments">
+        <div class="panel-heading">
+          <div>
+            <h2>Prochains rendez-vous</h2>
+            <p>Gardez votre journée organisée.</p>
+          </div>
+          <a href="#appointments" class="text-link">Voir l’agenda</a>
+        </div>
+
+        <div class="appointment-list" id="appointmentList">
+          <div class="appointment">
+            <div class="appointment-time">09:30</div>
+            <div class="appointment-details">
+              <strong>Aminata Diallo</strong>
+              <span>Coupe et coiffage</span>
+            </div>
+            <span class="status confirmed">Confirmé</span>
+          </div>
+
+          <div class="appointment">
+            <div class="appointment-time">11:00</div>
+            <div class="appointment-details">
+              <strong>Sarah Martin</strong>
+              <span>Coloration</span>
+            </div>
+            <span class="status pending">À confirmer</span>
+          </div>
+
+          <div class="appointment">
+            <div class="appointment-time">14:30</div>
+            <div class="appointment-details">
+              <strong>Inès Bernard</strong>
+              <span>Brushing</span>
+            </div>
+            <span class="status confirmed">Confirmé</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel" id="loyalty">
+        <div class="panel-heading">
+          <div>
+            <h2>Clients à reconquérir</h2>
+            <p>Ils ne sont pas revenus récemment.</p>
+          </div>
+          <span class="count-badge">12 clients</span>
+        </div>
+
+        <div class="inactive-client">
+          <div class="client-avatar">AM</div>
+          <div class="client-details">
+            <strong>Amélie Moreau</strong>
+            <span>Dernière visite : il y a 52 jours</span>
+          </div>
+        </div>
+
+        <div class="inactive-client">
+          <div class="client-avatar">KD</div>
+          <div class="client-details">
+            <strong>Khadija Diallo</strong>
+            <span>Dernière visite : il y a 61 jours</span>
+          </div>
+        </div>
+
+        <button class="secondary-button" id="prepareMessage">
+          Préparer un message de relance
+        </button>
+        <p class="feedback" id="feedback" aria-live="polite"></p>
+      </article>
+    </section>
+
+    <footer>
+      <span>© 2026 ClientFidèle</span>
+      <span>La fidélité commence par une attention.</span>
+    </footer>
+  </main>
+</body>
+</html>

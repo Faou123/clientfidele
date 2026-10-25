@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClientFidèle — Gestion des clients</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/clients.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a href="index.html" class="brand">Client<span>Fidèle</span></a>
+    <p class="nav-label">ESPACE DE TRAVAIL</p>
+    <nav>
+      <a class="nav-link" href="index.html">▦ Tableau de bord</a>
+      <a class="nav-link active" href="clients.html">♙ Clients</a>
+      <a class="nav-link" href="index.html#appointments">▣ Rendez-vous</a>
+      <a class="nav-link" href="index.html#loyalty">♡ Fidélisation</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="avatar">S</div>
+      <div>
+        <strong>Mon salon</strong>
+        <small>Espace professionnel</small>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">GESTION DE LA CLIENTÈLE</p>
+        <h1>Mes clients</h1>
+        <p class="subtitle">Centralisez les informations et prenez soin de votre clientèle.</p>
+      </div>
+      <button class="primary-button" id="openClientForm">+ Ajouter un client</button>
+    </header>
+
+    <section class="stats-grid client-stats">
+      <article class="stat-card">
+        <span class="stat-icon">♙</span>
+        <p>Total des clients</p>
+        <strong id="totalClients">0</strong>
+        <small>Clients enregistrés</small>
+      </article>
+      <article class="stat-card">
+        <span class="stat-icon">♡</span>
+        <p>Clients à relancer</p>
+        <strong id="inactiveClients">0</strong>
+        <small>Plus de 45 jours sans visite</small>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading">
+        <div>
+          <h2>Répertoire client</h2>
+          <p>Recherchez et gérez les informations de vos clients.</p>
+        </div>
+      </div>
+
+      <div class="client-toolbar">
+        <input type="search" id="searchClient" placeholder="Rechercher un nom, un email ou un téléphone..." aria-label="Rechercher un client">
+        <select id="clientFilter" aria-label="Filtrer les clients">
+          <option value="all">Tous les clients</option>
+          <option value="active">Clients récents</option>
+          <option value="inactive">Clients à relancer</option>
+        </select>
+      </div>
+
+      <form id="clientForm" class="client-form" hidden>
+        <h2 id="formTitle">Ajouter un client</h2>
+        <input type="hidden" id="clientId">
+
+        <div class="form-grid">
+          <label>
+            Nom complet *
+            <input id="clientName" type="text" maxlength="100" required>
+          </label>
+          <label>
+            Téléphone *
+            <input id="clientPhone" type="tel" maxlength="30" required>
+          </label>
+          <label>
+            Adresse email
+            <input id="clientEmail" type="email" maxlength="150">
+          </label>
+          <label>
+            Dernière visite
+            <input id="clientLastVisit" type="date">
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="secondary-button" id="cancelClientForm">Annuler</button>
+          <button type="submit" class="primary-button">Enregistrer</button>
+        </div>
+        <p id="formFeedback" class="feedback" role="status"></p>
+      </form>
+
+      <div class="table-wrapper">
+        <table class="clients-table">
+          <thead>
+            <tr>
+              <th>Client</th>
+              <th>Téléphone</th>
+              <th>Dernière visite</th>
+              <th>Statut</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="clientTableBody"></tbody>
+        </table>
+      </div>
+
+      <p id="emptyClients" class="empty-state" hidden>Aucun client trouvé.</p>
+    </section>
+    <footer>
+      <span>© 2026 ClientFidèle</span>
+      <span>La fidélité commence par une attention.</span>
+    </footer>
+  </main>
+</body>
+</html>
